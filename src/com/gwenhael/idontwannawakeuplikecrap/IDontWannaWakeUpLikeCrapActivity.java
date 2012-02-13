@@ -22,8 +22,8 @@ public class IDontWannaWakeUpLikeCrapActivity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main); // 
-        
+        setContentView(R.layout.main); // before trying to link widgets
+
         falling_asleep_time = (EditText) findViewById( R.id.falling_asleep_time );
         result_text = (TextView) findViewById( R.id.result_text );
     }
