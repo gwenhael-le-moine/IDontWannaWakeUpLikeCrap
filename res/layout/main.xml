@@ -27,4 +27,9 @@
 	android:layout_height="wrap_content"
 	android:text="Button"
 	android:onClick="onClick" />
+<TextView
+	android:id="@+id/result_text"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="Fill the value, press the button and it shall happen" />
 </LinearLayout>

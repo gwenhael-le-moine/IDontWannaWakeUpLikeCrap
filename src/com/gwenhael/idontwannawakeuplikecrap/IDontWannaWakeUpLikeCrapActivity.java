@@ -15,6 +15,7 @@ public class IDontWannaWakeUpLikeCrapActivity
     implements OnClickListener
 {
     protected EditText falling_asleep_time;
+    protected TextView result_text;
     
     /** Called when the activity is first created. */
     @Override
@@ -24,10 +25,13 @@ public class IDontWannaWakeUpLikeCrapActivity
         setContentView(R.layout.main); // 
         
         falling_asleep_time = (EditText) findViewById( R.id.falling_asleep_time );
+        result_text = (TextView) findViewById( R.id.result_text );
     }
 
     public void onClick( View view )
     {
         Toast.makeText(this, falling_asleep_time.getText().toString(), Toast.LENGTH_SHORT).show();
+
+        result_text.setText( falling_asleep_time.getText().toString() );
     }
 }
