@@ -28,6 +28,7 @@ public class IDontWannaWakeUpLikeCrapActivity
         result_text = (TextView) findViewById( R.id.result_text );
     }
 
+    @Override
     public void onClick( View view )
     {
         Toast.makeText(this, falling_asleep_time.getText().toString(), Toast.LENGTH_SHORT).show();
