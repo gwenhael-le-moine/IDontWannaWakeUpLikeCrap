@@ -4,32 +4,32 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
-	xmlns:android="http://schemas.android.com/apk/res/android">
-<TextView
-	android:id="@+id/hello_text"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:text="Hello World, IDontWannaWakeUpLikeCrapActivity" />
-<EditText
-	android:id="@+id/falling_asleep_time"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="EditText"
-	android:hint="14"
-	android:textSize="18sp" />
-<TimePicker
-	android:id="@+id/better_wake_up_before_time"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content" />
-<Button
-	android:id="@+id/compute_button"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="Button"
-	android:onClick="onClick" />
-<TextView
-	android:id="@+id/result_text"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:text="Fill the value, press the button and it shall happen" />
+	xmlns:android="http://schemas.android.com/apk/res/android" >
+  <TextView
+	  android:id="@+id/hello_text"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"
+	  android:text="Hello World, IDontWannaWakeUpLikeCrapActivity" />
+  <EditText
+	  android:id="@+id/falling_asleep_time"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="EditText"
+	  android:hint="14"
+	  android:textSize="18sp" />
+  <TimePicker
+	  android:id="@+id/better_wake_up_before_time"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content" />
+  <Button
+	  android:id="@+id/compute_button"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Button"
+	  android:onClick="onClick" />
+  <TextView
+	  android:id="@+id/result_text"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"
+	  android:text="Fill the value, press the button and it shall happen" />
 </LinearLayout>
