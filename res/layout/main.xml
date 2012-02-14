@@ -6,26 +6,28 @@
 	android:orientation="vertical"
 	xmlns:android="http://schemas.android.com/apk/res/android" >
   <TextView
-	  android:id="@+id/hello_text"
-	  android:layout_width="fill_parent"
+	  android:id="@+id/falling_asleep_time_label_1"
+	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
-	  android:text="Hello World, IDontWannaWakeUpLikeCrapActivity" />
+	  android:text="It'll take me " />
   <EditText
 	  android:id="@+id/falling_asleep_time"
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
-	  android:text="EditText"
+	  android:text="14"
 	  android:hint="14"
+	  android:inputType="number"
 	  android:textSize="18sp" />
-  <TimePicker
-	  android:id="@+id/better_wake_up_before_time"
+  <TextView
+	  android:id="@+id/falling_asleep_time_label_2"
 	  android:layout_width="wrap_content"
-	  android:layout_height="wrap_content" />
+	  android:layout_height="wrap_content"
+	  android:text=" minutes to fall asleep" />
   <Button
 	  android:id="@+id/compute_button"
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
-	  android:text="Button"
+	  android:text="Tell me at what time I should set the alarm."
 	  android:onClick="onClick" />
   <TextView
 	  android:id="@+id/result_text"
