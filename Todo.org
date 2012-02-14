@@ -1,0 +1,5 @@
+* UI
+** spinner to input nb of minutes to fall asleep
+** no more button, just refresh on falling_asleep_minutes' change
+* Functionality
+** set alarm by a button next to each wake up time
