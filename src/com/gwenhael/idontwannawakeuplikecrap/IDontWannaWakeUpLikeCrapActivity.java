@@ -17,6 +17,9 @@ public class IDontWannaWakeUpLikeCrapActivity
     extends Activity
     implements TextWatcher
 {
+    private static final int DEFAULT_NAP_TIME = 20;
+    private static final int DEFAULT_FALL_ASLEEP_TIME = 14;
+    
     protected EditText falling_asleep_time;
     protected TextView result_text;
     
@@ -31,7 +34,7 @@ public class IDontWannaWakeUpLikeCrapActivity
         falling_asleep_time.addTextChangedListener(this);
         result_text = (TextView) findViewById( R.id.result_text );
 
-        falling_asleep_time.setText( "14" );
+        falling_asleep_time.setText( new String( ""+DEFAULT_FALL_ASLEEP_TIME ) );
     }
 
     @Override
@@ -47,7 +50,12 @@ public class IDontWannaWakeUpLikeCrapActivity
     private void update(  )
     {
         // Toast.makeText(this, falling_asleep_time.getText().toString(), Toast.LENGTH_SHORT).show();
-        int time_to_fall_asleep = (new Integer( falling_asleep_time.getText().toString() )).intValue(  );
+        int time_to_fall_asleep;
+        try {
+            time_to_fall_asleep = (new Integer( falling_asleep_time.getText().toString() )).intValue(  );
+        } catch( Exception e ) {
+            time_to_fall_asleep = 0;
+        }
 
         Calendar now = Calendar.getInstance();
         Calendar asleep = (Calendar)now.clone(  ); // what's with the casting crap?
