@@ -5,19 +5,17 @@ import java.util.Calendar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-// import android.view.View.OnClickListener;
 // import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.EditText;
 // import android.widget.TimePicker;
-// import android.widget.Button;
 import android.text.TextWatcher;
 import android.text.Editable;
 
 
 public class IDontWannaWakeUpLikeCrapActivity
     extends Activity
-    implements TextWatcher //OnClickListener
+    implements TextWatcher
 {
     protected EditText falling_asleep_time;
     protected TextView result_text;
@@ -30,25 +28,21 @@ public class IDontWannaWakeUpLikeCrapActivity
         setContentView(R.layout.main); // before trying to link widgets
 
         falling_asleep_time = (EditText) findViewById( R.id.falling_asleep_time );
+        falling_asleep_time.addTextChangedListener(this);
         result_text = (TextView) findViewById( R.id.result_text );
+
+        falling_asleep_time.setText( "14" );
     }
 
     @Override
-    // public void onClick( View view )
     public void afterTextChanged(Editable s)
     {
         update(  );
     }
     @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after)
-    {
-        update(  );
-    }
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {  }
     @Override
-    public void onTextChanged(CharSequence s, int start, int count, int after)
-    {
-        update(  );
-    }
+    public void onTextChanged(CharSequence s, int start, int count, int after) {  }
 
     private void update(  )
     {
@@ -70,9 +64,7 @@ public class IDontWannaWakeUpLikeCrapActivity
     }
 
     private String justTheTime( Calendar c ) {
-        String r = new String( c.get( Calendar.HOUR_OF_DAY ) + ":" );
-        r += ( ( c.get( Calendar.MINUTE ) < 10 ) ? "0" : "" ) + c.get( Calendar.MINUTE );
-        r = ( (Calendar.getInstance()).get( Calendar.DAY_OF_YEAR ) != c.get( Calendar.DAY_OF_YEAR ) ? "tomorrow" : "today" ) + " at " + r;
+        String r = new String( ( (Calendar.getInstance()).get( Calendar.DAY_OF_YEAR ) != c.get( Calendar.DAY_OF_YEAR ) ? "tomorrow" : "today" ) + " at " + c.get( Calendar.HOUR_OF_DAY ) + ":" + ( ( c.get( Calendar.MINUTE ) < 10 ) ? "0" : "" ) + c.get( Calendar.MINUTE ) );
 
         return r;
     }

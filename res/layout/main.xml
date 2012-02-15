@@ -23,12 +23,6 @@
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
 	  android:text=" minutes to fall asleep" />
-  <!-- <Button -->
-  <!-- 	  android:id="@+id/compute_button" -->
-  <!-- 	  android:layout_width="wrap_content" -->
-  <!-- 	  android:layout_height="wrap_content" -->
-  <!-- 	  android:text="Tell me at what time I should set the alarm." -->
-  <!-- 	  android:onClick="onClick" /> -->
   <TextView
 	  android:id="@+id/result_text"
 	  android:layout_width="fill_parent"
