@@ -1,19 +1,23 @@
 package com.gwenhael.idontwannawakeuplikecrap;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
+// import android.view.View.OnClickListener;
 // import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.EditText;
 // import android.widget.TimePicker;
 // import android.widget.Button;
-import java.util.Calendar;
+import android.text.TextWatcher;
+import android.text.Editable;
+
 
 public class IDontWannaWakeUpLikeCrapActivity
     extends Activity
-    implements OnClickListener
+    implements TextWatcher //OnClickListener
 {
     protected EditText falling_asleep_time;
     protected TextView result_text;
@@ -30,7 +34,23 @@ public class IDontWannaWakeUpLikeCrapActivity
     }
 
     @Override
-    public void onClick( View view )
+    // public void onClick( View view )
+    public void afterTextChanged(Editable s)
+    {
+        update(  );
+    }
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after)
+    {
+        update(  );
+    }
+    @Override
+    public void onTextChanged(CharSequence s, int start, int count, int after)
+    {
+        update(  );
+    }
+
+    private void update(  )
     {
         // Toast.makeText(this, falling_asleep_time.getText().toString(), Toast.LENGTH_SHORT).show();
         int time_to_fall_asleep = (new Integer( falling_asleep_time.getText().toString() )).intValue(  );
