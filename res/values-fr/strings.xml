@@ -5,6 +5,6 @@
 	<string name="today">"aujourd'hui"</string>
 	<string name="at">" à "</string>
 	<string name="refresh">Rafraichir</string>
-	<string name="presentation">En vous endormant maintenant metter le réveil à :</string>
+	<string name="presentation">En vous endormant maintenant mettez le réveil à :</string>
 	<string name="default_result">""</string>
 </resources>
