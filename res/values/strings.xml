@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">IDontWannaWakeUpLikeCrapActivity</string>
+    <string name="app_name">"Fresh awake!"</string>
 	<string name="tomorrow">tomorrow</string>
 	<string name="today">today</string>
 	<string name="at">" at "</string>
