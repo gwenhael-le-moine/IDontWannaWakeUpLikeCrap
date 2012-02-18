@@ -1,7 +1,8 @@
 * UI
-** spinner to input nb of minutes to fall asleep
+** Set times in 'Settings' panel
+** maybe use wheel for input
    http://code.google.com/p/android-wheel/
 * Functionality
-** add asleep+20min for naps
+** add asleep+20min for naps ?
 ** set alarm by a button next to each wake up time
    http://developer.android.com/reference/android/app/AlarmManager.html
