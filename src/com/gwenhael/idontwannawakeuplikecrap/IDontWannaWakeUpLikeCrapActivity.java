@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
@@ -15,8 +16,10 @@ public class IDontWannaWakeUpLikeCrapActivity
 {
     private static final int DEFAULT_NAP_TIME = 20;
     private static final int DEFAULT_FALL_ASLEEP_TIME = 14;
-    
+
+    protected LinearLayout main_layout;
     protected Button refresh;
+    protected TextView presentation;
     protected TextView result_text;
     
     /** Called when the activity is first created. */
@@ -26,6 +29,8 @@ public class IDontWannaWakeUpLikeCrapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main); // before trying to link widgets
 
+        main_layout = (LinearLayout) findViewById( R.id.layout );
+        presentation = (TextView) findViewById( R.id.presentation );
         result_text = (TextView) findViewById( R.id.result_text );
         refresh = (Button) findViewById( R.id.refresh );
         refresh.setOnClickListener( this );
