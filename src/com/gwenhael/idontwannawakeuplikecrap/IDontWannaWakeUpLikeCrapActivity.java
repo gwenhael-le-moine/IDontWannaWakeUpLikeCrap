@@ -5,22 +5,18 @@ import java.util.Calendar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-// import android.widget.Toast;
 import android.widget.TextView;
-import android.widget.EditText;
-// import android.widget.TimePicker;
-import android.text.TextWatcher;
-import android.text.Editable;
-
+import android.widget.Button;
+import android.view.View.OnClickListener;
 
 public class IDontWannaWakeUpLikeCrapActivity
     extends Activity
-    implements TextWatcher
+    implements OnClickListener
 {
     private static final int DEFAULT_NAP_TIME = 20;
     private static final int DEFAULT_FALL_ASLEEP_TIME = 14;
     
-    protected EditText falling_asleep_time;
+    protected Button refresh;
     protected TextView result_text;
     
     /** Called when the activity is first created. */
@@ -30,32 +26,22 @@ public class IDontWannaWakeUpLikeCrapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main); // before trying to link widgets
 
-        falling_asleep_time = (EditText) findViewById( R.id.falling_asleep_time );
-        falling_asleep_time.addTextChangedListener(this);
         result_text = (TextView) findViewById( R.id.result_text );
-
-        falling_asleep_time.setText( new String( ""+DEFAULT_FALL_ASLEEP_TIME ) );
+        refresh = (Button) findViewById( R.id.refresh );
+        refresh.setOnClickListener( this );
+        
+        refresh(  );
     }
 
     @Override
-    public void afterTextChanged(Editable s)
+    public void onClick( View v )
     {
-        update(  );
+        refresh(  );
     }
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {  }
-    @Override
-    public void onTextChanged(CharSequence s, int start, int count, int after) {  }
 
-    private void update(  )
+    private void refresh(  )
     {
-        // Toast.makeText(this, falling_asleep_time.getText().toString(), Toast.LENGTH_SHORT).show();
-        int time_to_fall_asleep;
-        try {
-            time_to_fall_asleep = (new Integer( falling_asleep_time.getText().toString() )).intValue(  );
-        } catch( Exception e ) {
-            time_to_fall_asleep = 0;
-        }
+        int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;
 
         Calendar now = Calendar.getInstance();
         Calendar asleep = (Calendar)now.clone(  ); // what's with the casting crap?
@@ -66,7 +52,9 @@ public class IDontWannaWakeUpLikeCrapActivity
         for ( int i = 0 ; i < 6 ; i++ ) {
             wake_up.add( Calendar.HOUR, 1 );
             wake_up.add( Calendar.MINUTE, 30 );
-            r += justTheTime( wake_up ) + "\n";
+            // if ( ( i < 1 ) || ( i > 3 ) ) {
+                r += justTheTime( wake_up ) + "\n";
+            // }
         }
         result_text.setText( r );
     }

@@ -5,24 +5,16 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
 	xmlns:android="http://schemas.android.com/apk/res/android" >
+  <Button
+	  android:id="@+id/refresh"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Refresh." />
   <TextView
-	  android:id="@+id/falling_asleep_time_label_1"
+	  android:id="@+id/presentation"
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
-	  android:text="It'll take me " />
-  <EditText
-	  android:id="@+id/falling_asleep_time"
-	  android:layout_width="wrap_content"
-	  android:layout_height="wrap_content"
-	  android:text="14"
-	  android:hint="14"
-	  android:inputType="number"
-	  android:textSize="18sp" />
-  <TextView
-	  android:id="@+id/falling_asleep_time_label_2"
-	  android:layout_width="wrap_content"
-	  android:layout_height="wrap_content"
-	  android:text=" minutes to fall asleep" />
+	  android:text="Going to sleep now you should set the alarm to:" />
   <TextView
 	  android:id="@+id/result_text"
 	  android:layout_width="fill_parent"
