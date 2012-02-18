@@ -1,7 +1,11 @@
 * UI
-** Set times in 'Settings' panel
-** maybe use wheel for input
-   http://code.google.com/p/android-wheel/
+** Polish style
+*** fonts
+*** colors (use a color scheme webapp to pick one)
+**** differents, configurable style?
+** Use configuration panel
+*** maybe use wheel for input
+   	http://code.google.com/p/android-wheel/
 * Functionality
 ** add asleep+20min for naps ?
 ** set alarm by a button next to each wake up time
