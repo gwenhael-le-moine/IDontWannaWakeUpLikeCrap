@@ -9,15 +9,15 @@
 	  android:id="@+id/refresh"
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
-	  android:text="Refresh." />
+	  android:text="@string/refresh" />
   <TextView
 	  android:id="@+id/presentation"
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
-	  android:text="Going to sleep now you should set the alarm to:" />
+	  android:text="@string/presentation" />
   <TextView
 	  android:id="@+id/result_text"
 	  android:layout_width="fill_parent"
 	  android:layout_height="wrap_content"
-	  android:text="Fill the value, press the button and it shall happen" />
+	  android:text="@string/default_result" />
 </LinearLayout>

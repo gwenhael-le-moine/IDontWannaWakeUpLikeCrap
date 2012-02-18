@@ -57,15 +57,13 @@ public class IDontWannaWakeUpLikeCrapActivity
         for ( int i = 0 ; i < 6 ; i++ ) {
             wake_up.add( Calendar.HOUR, 1 );
             wake_up.add( Calendar.MINUTE, 30 );
-            // if ( ( i < 1 ) || ( i > 3 ) ) {
-                r += justTheTime( wake_up ) + "\n";
-            // }
+            r += justTheTime( wake_up ) + "\n";
         }
         result_text.setText( r );
     }
 
     private String justTheTime( Calendar c ) {
-        String r = new String( ( (Calendar.getInstance()).get( Calendar.DAY_OF_YEAR ) != c.get( Calendar.DAY_OF_YEAR ) ? "tomorrow" : "today" ) + " at " + c.get( Calendar.HOUR_OF_DAY ) + ":" + ( ( c.get( Calendar.MINUTE ) < 10 ) ? "0" : "" ) + c.get( Calendar.MINUTE ) );
+        String r = new String( ( (Calendar.getInstance()).get( Calendar.DAY_OF_YEAR ) != c.get( Calendar.DAY_OF_YEAR ) ? getString( R.string.tomorrow ) : getString( R.string.today ) ) + getString( R.string.at ) + c.get( Calendar.HOUR_OF_DAY ) + ":" + ( ( c.get( Calendar.MINUTE ) < 10 ) ? "0" : "" ) + c.get( Calendar.MINUTE ) );
 
         return r;
     }

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">IDontWannaWakeUpLikeCrapActivity</string>
+	<string name="tomorrow">tomorrow</string>
+	<string name="today">today</string>
+	<string name="at">" at "</string>
+	<string name="refresh">Refresh.</string>
+	<string name="presentation">Going to sleep now you should set the alarm to:</string>
+	<string name="default_result">""</string>
 </resources>
