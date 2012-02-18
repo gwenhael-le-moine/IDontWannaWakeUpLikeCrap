@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IDontWannaWakeUpLikeCrapActivity</string>
+	<string name="tomorrow">demain</string>
+	<string name="today">"aujourd'hui"</string>
+	<string name="at">" à "</string>
+	<string name="refresh">Rafraichir</string>
+	<string name="presentation">En vous endormant maintenant metter le réveil à :</string>
+	<string name="default_result">""</string>
+</resources>
