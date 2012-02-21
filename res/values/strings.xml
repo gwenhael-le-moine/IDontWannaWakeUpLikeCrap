@@ -9,4 +9,5 @@
 	<string name="default_result">""</string>
 	<string name="about">"About"</string>
 	<string name="about_text">"Once upon a time, in the land of dreams, was an alarm-clock, brutal, cold and ugly."</string>
+	<string name="about_close">"Nice."</string>
 </resources>

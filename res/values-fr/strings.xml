@@ -9,4 +9,5 @@
 	<string name="default_result">""</string>
 	<string name="about">"À propos..."</string>
 	<string name="about_text">"Il était une fois, au pays des rêves, un réveil brutal, froid et laid."</string>
+	<string name="about_close">"Cool."</string>
 </resources>

@@ -17,4 +17,10 @@
 	  android:layout_width="fill_parent"
 	  android:layout_height="wrap_content"
 	  android:text="@string/about_text" />
+  <Button
+	  android:id="@+id/about_close"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"
+	  android:text="@string/about_close"
+	  android:onClick="onClick" />
 </LinearLayout>
