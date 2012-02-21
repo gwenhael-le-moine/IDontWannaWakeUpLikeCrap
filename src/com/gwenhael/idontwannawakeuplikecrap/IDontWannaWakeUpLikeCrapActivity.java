@@ -9,7 +9,11 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.view.View.OnClickListener;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 public class IDontWannaWakeUpLikeCrapActivity
     extends Activity
@@ -40,6 +44,7 @@ public class IDontWannaWakeUpLikeCrapActivity
         timer.schedule( new TimerRefresh(  ), 100, 200 );
     }
 
+    @Override
     protected void onDestroy()
     {
         super.onDestroy();
@@ -47,6 +52,30 @@ public class IDontWannaWakeUpLikeCrapActivity
         timer.cancel();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch ( item.getItemId(  ) ) {
+            case R.id.about:
+                about(  );
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void about(  )
+    {
+        Toast.makeText( getApplicationContext(), getString( R.string.app_name ) + " " + getString( R.string.app_version ) + "\n" + getString( R.string.about_text ) , Toast.LENGTH_LONG).show();
+    }
+    
     private void refresh(  )
     {
         int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;

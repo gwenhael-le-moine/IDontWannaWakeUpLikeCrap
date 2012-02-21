@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">"Lever du bon pied !"</string>
-	<string name="tomorrow">demain</string>
+	<string name="app_version">"v0.2"</string>
+	<string name="tomorrow">"demain"</string>
 	<string name="today">"aujourd'hui"</string>
 	<string name="at">" à "</string>
-	<string name="presentation">En vous endormant maintenant mettez le réveil à :</string>
+	<string name="presentation">"En vous endormant maintenant mettez le réveil à :"</string>
 	<string name="default_result">""</string>
+	<string name="about">"À propos..."</string>
+	<string name="about_text">"Il était une fois, au pays des rêves, un réveil brutal, froid et laid."</string>
 </resources>

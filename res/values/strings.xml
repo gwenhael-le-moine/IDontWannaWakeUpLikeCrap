@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">"Fresh awake!"</string>
+	<string name="app_version">"v0.2"</string>
 	<string name="tomorrow">tomorrow</string>
 	<string name="today">today</string>
 	<string name="at">" at "</string>
 	<string name="presentation">Going to sleep now you should set the alarm to:</string>
 	<string name="default_result">""</string>
+	<string name="about">"About"</string>
+	<string name="about_text">"Once upon a time, in the land of dreams, was an alarm-clock, brutal, cold and ugly."</string>
 </resources>
