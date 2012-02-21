@@ -1,6 +1,8 @@
 package com.gwenhael.idontwannawakeuplikecrap;
 
 import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -21,7 +23,9 @@ public class IDontWannaWakeUpLikeCrapActivity
     protected Button refresh;
     protected TextView presentation;
     protected TextView result_text;
-    
+
+    private Timer timer;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -36,6 +40,16 @@ public class IDontWannaWakeUpLikeCrapActivity
         refresh.setOnClickListener( this );
         
         refresh(  );
+
+        timer = new Timer();
+        timer.schedule((TimerTask)(new TimerRefresh()), (long)100, (long)200);
+    }
+
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        
+        timer.cancel();
     }
 
     @Override
@@ -66,5 +80,19 @@ public class IDontWannaWakeUpLikeCrapActivity
         String r = new String( ( (Calendar.getInstance()).get( Calendar.DAY_OF_YEAR ) != c.get( Calendar.DAY_OF_YEAR ) ? getString( R.string.tomorrow ) : getString( R.string.today ) ) + getString( R.string.at ) + c.get( Calendar.HOUR_OF_DAY ) + ":" + ( ( c.get( Calendar.MINUTE ) < 10 ) ? "0" : "" ) + c.get( Calendar.MINUTE ) );
 
         return r;
+    }
+
+    class TimerRefresh extends TimerTask
+    {
+        public void run()
+        {
+            IDontWannaWakeUpLikeCrapActivity.this.runOnUiThread(new Runnable()
+                {
+                    public void run()
+                    {
+                        refresh(  );
+                    }
+                });
+        }
     }
 }
