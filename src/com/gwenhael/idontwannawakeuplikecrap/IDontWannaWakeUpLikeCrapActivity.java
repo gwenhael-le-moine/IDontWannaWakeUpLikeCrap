@@ -62,10 +62,9 @@ public class IDontWannaWakeUpLikeCrapActivity
     {
         int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;
 
-        Calendar now = Calendar.getInstance();
-        Calendar asleep = (Calendar)now.clone(  ); // what's with the casting crap?
+        Calendar asleep = Calendar.getInstance();
         asleep.add( Calendar.MINUTE, time_to_fall_asleep );
-        Calendar wake_up = (Calendar)asleep.clone(  );
+        Calendar wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
         
         String r = new String(  );
         for ( int i = 0 ; i < 6 ; i++ ) {
