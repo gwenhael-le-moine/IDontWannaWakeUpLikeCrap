@@ -9,18 +9,15 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Button;
 import android.view.View.OnClickListener;
 
 public class IDontWannaWakeUpLikeCrapActivity
     extends Activity
-    implements OnClickListener
 {
     private static final int DEFAULT_NAP_TIME = 20;
     private static final int DEFAULT_FALL_ASLEEP_TIME = 14;
 
     protected LinearLayout main_layout;
-    protected Button refresh;
     protected TextView presentation;
     protected TextView result_text;
 
@@ -36,8 +33,6 @@ public class IDontWannaWakeUpLikeCrapActivity
         main_layout = (LinearLayout) findViewById( R.id.layout );
         presentation = (TextView) findViewById( R.id.presentation );
         result_text = (TextView) findViewById( R.id.result_text );
-        refresh = (Button) findViewById( R.id.refresh );
-        refresh.setOnClickListener( this );
         
         refresh(  );
 
@@ -50,12 +45,6 @@ public class IDontWannaWakeUpLikeCrapActivity
         super.onDestroy();
         
         timer.cancel();
-    }
-
-    @Override
-    public void onClick( View v )
-    {
-        refresh(  );
     }
 
     private void refresh(  )
