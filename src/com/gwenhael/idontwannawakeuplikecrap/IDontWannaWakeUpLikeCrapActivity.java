@@ -41,8 +41,8 @@ public class IDontWannaWakeUpLikeCrapActivity
         
         refresh(  );
 
-        timer = new Timer();
-        timer.schedule((TimerTask)(new TimerRefresh()), (long)100, (long)200);
+        timer = new Timer(  );
+        timer.schedule( new TimerRefresh(  ), 100, 200 );
     }
 
     protected void onDestroy()
