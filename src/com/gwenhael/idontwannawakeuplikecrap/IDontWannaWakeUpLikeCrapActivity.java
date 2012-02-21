@@ -13,6 +13,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+
+import com.gwenhael.idontwannawakeuplikecrap.AboutActivity;
 
 public class IDontWannaWakeUpLikeCrapActivity
     extends Activity
@@ -72,7 +75,7 @@ public class IDontWannaWakeUpLikeCrapActivity
 
     private void about(  )
     {
-        Toast.makeText( getApplicationContext(), getString( R.string.app_name ) + " " + getString( R.string.app_version ) + "\n" + getString( R.string.about_text ) , Toast.LENGTH_LONG).show();
+        startActivity( new Intent(this, AboutActivity.class) );
     }
     
     private void refresh(  )
