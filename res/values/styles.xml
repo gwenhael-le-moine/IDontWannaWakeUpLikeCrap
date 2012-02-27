@@ -3,5 +3,8 @@
     <style name="IDWWULC" parent="@android:style/Theme.Light">
     	<item name="android:layout_height">fill_parent</item>
     	<item name="android:layout_width">fill_parent</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:typeface">serif</item>
+		<item name="android:windowNoTitle">true</item>
     </style>
 </resources>
