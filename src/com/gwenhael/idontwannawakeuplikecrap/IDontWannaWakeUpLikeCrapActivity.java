@@ -24,8 +24,8 @@ public class IDontWannaWakeUpLikeCrapActivity
     private static final int DEFAULT_FALL_ASLEEP_TIME = 14;
 
     protected LinearLayout main_layout;
+    protected LinearLayout result_layout;
     protected TextView presentation;
-    protected TextView result_text;
 
     private Timer timer;
 
@@ -37,8 +37,8 @@ public class IDontWannaWakeUpLikeCrapActivity
         setContentView(R.layout.main); // before trying to link widgets
 
         main_layout = (LinearLayout) findViewById( R.id.layout );
+        result_layout = (LinearLayout) findViewById( R.id.result_layout );
         presentation = (TextView) findViewById( R.id.presentation );
-        result_text = (TextView) findViewById( R.id.result_text );
         
         refresh(  );
 
@@ -80,6 +80,15 @@ public class IDontWannaWakeUpLikeCrapActivity
     
     private void refresh(  )
     {
+        // first remove the previous results
+        main_layout.removeView( result_layout );
+
+        // create new results
+        result_layout = new LinearLayout( this );
+        main_layout.addView( result_layout );
+        TextView result_text = new TextView( this );
+        result_layout.addView( result_text );
+
         int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;
 
         Calendar asleep = Calendar.getInstance();
