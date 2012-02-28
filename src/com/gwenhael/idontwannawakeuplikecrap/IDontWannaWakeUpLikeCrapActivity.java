@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -88,7 +89,7 @@ public class IDontWannaWakeUpLikeCrapActivity
 
         result_layout.removeAllViewsInLayout(  );
         for ( int i = 0 ; i < 6 ; i++ ) {
-            TextView result_text = new TextView( this );
+            Button result_text = new Button( this );
 
             wake_up.add( Calendar.HOUR, 1 );
             wake_up.add( Calendar.MINUTE, 30 );
