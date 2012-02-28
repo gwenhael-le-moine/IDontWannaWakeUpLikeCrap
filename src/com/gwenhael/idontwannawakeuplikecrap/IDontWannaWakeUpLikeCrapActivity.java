@@ -1,6 +1,7 @@
 package com.gwenhael.idontwannawakeuplikecrap;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -87,7 +88,7 @@ public class IDontWannaWakeUpLikeCrapActivity
     {
         int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;
 
-        Calendar asleep = Calendar.getInstance();
+        Calendar asleep = Calendar.getInstance( TimeZone.getDefault(  ) );
         asleep.add( Calendar.MINUTE, time_to_fall_asleep );
         wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
 
@@ -100,9 +101,8 @@ public class IDontWannaWakeUpLikeCrapActivity
             result_text.setText( justTheTime( wake_up ) );
             result_text.setOnClickListener( new View.OnClickListener() {
                     public void onClick(View v) {
-                        int h = wake_up.get( Calendar.HOUR );
-                        // h.add( Calendar.MILLISECOND, wake_up.get( Calendar.ZONE_OFFSET ) );
-                        int m = wake_up.get( Calendar.MINUTE );
+                        int h = wake_up.get( Calendar.HOUR ); // no closure :/
+                        int m = wake_up.get( Calendar.MINUTE ); // no closure :/
 
                         Intent i = new Intent( AlarmClock.ACTION_SET_ALARM );
                         i.putExtra( AlarmClock.EXTRA_HOUR, h );
