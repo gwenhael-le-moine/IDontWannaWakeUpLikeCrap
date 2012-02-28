@@ -80,28 +80,22 @@ public class IDontWannaWakeUpLikeCrapActivity
     
     private void refresh(  )
     {
-        // first remove the previous results
-        main_layout.removeView( result_layout );
-
-        // create new results
-        result_layout = new LinearLayout( this );
-        main_layout.addView( result_layout );
-        TextView result_text = new TextView( this );
-        result_layout.addView( result_text );
-
         int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;
 
         Calendar asleep = Calendar.getInstance();
         asleep.add( Calendar.MINUTE, time_to_fall_asleep );
         Calendar wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
         
-        String r = new String(  );
+        result_layout.removeAllViewsInLayout(  );
         for ( int i = 0 ; i < 6 ; i++ ) {
+            TextView result_text = new TextView( this );
+            
             wake_up.add( Calendar.HOUR, 1 );
             wake_up.add( Calendar.MINUTE, 30 );
-            r += justTheTime( wake_up ) + "\n";
+            result_text.setText( justTheTime( wake_up ) );
+
+            result_layout.addView( result_text, i );
         }
-        result_text.setText( r );
     }
 
     private String justTheTime( Calendar c ) {
