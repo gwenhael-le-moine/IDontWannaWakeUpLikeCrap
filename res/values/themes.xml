@@ -6,5 +6,12 @@
         <item name="android:textSize">22sp</item>
         <item name="android:typeface">serif</item>
 		<item name="android:windowNoTitle">true</item>
+		<item name="android:textViewStyle">@style/ResultNormal</item>
     </style>
+	<style name="ResultNormal" parent="@android:style/Widget.TextView">
+	</style>
+	<style name="ResultGood" parent="@android:style/Widget.TextView">
+	</style>
+	<style name="ResultBad" parent="@android:style/Widget.TextView">
+	</style>
 </resources>
