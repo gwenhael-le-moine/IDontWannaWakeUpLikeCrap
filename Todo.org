@@ -10,5 +10,3 @@
    	http://code.google.com/p/android-wheel/
 * Functionality
 ** add asleep+20min for naps ?
-** set alarm by a button next to each wake up time
-   http://developer.android.com/reference/android/app/AlarmManager.html
