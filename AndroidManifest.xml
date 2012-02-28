@@ -16,5 +16,7 @@
                   android:label="@string/app_name"
 				  android:theme="@style/IDWWULC" >
         </activity>
+		<uses-permission android:name="com.android.alarm.permission.SET_ALARM"></uses-permission>
+
     </application>
 </manifest> 

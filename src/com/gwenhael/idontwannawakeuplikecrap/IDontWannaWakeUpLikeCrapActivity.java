@@ -10,11 +10,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
+import android.provider.AlarmClock;
 
 import com.gwenhael.idontwannawakeuplikecrap.AboutActivity;
 
@@ -27,6 +29,8 @@ public class IDontWannaWakeUpLikeCrapActivity
     protected LinearLayout main_layout;
     protected LinearLayout result_layout;
     protected TextView presentation;
+
+    protected Calendar wake_up;
 
     private Timer timer;
 
@@ -46,9 +50,9 @@ public class IDontWannaWakeUpLikeCrapActivity
         timer = new Timer(  );
         timer.schedule( new TimerRefresh(  ), 100, 200 );
     }
-
+    
     @Override
-    protected void onDestroy()
+    protected void onDestroy(  )
     {
         super.onDestroy();
         
@@ -56,7 +60,7 @@ public class IDontWannaWakeUpLikeCrapActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu( Menu menu ) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
@@ -85,7 +89,7 @@ public class IDontWannaWakeUpLikeCrapActivity
 
         Calendar asleep = Calendar.getInstance();
         asleep.add( Calendar.MINUTE, time_to_fall_asleep );
-        Calendar wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
+        wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
 
         result_layout.removeAllViewsInLayout(  );
         for ( int i = 0 ; i < 6 ; i++ ) {
@@ -94,6 +98,18 @@ public class IDontWannaWakeUpLikeCrapActivity
             wake_up.add( Calendar.HOUR, 1 );
             wake_up.add( Calendar.MINUTE, 30 );
             result_text.setText( justTheTime( wake_up ) );
+            result_text.setOnClickListener( new View.OnClickListener() {
+                    public void onClick(View v) {
+                        int h = wake_up.get( Calendar.HOUR );
+                        // h.add( Calendar.MILLISECOND, wake_up.get( Calendar.ZONE_OFFSET ) );
+                        int m = wake_up.get( Calendar.MINUTE );
+
+                        Intent i = new Intent( AlarmClock.ACTION_SET_ALARM );
+                        i.putExtra( AlarmClock.EXTRA_HOUR, h );
+                        i.putExtra( AlarmClock.EXTRA_MINUTES, m );
+                        startActivity(i);
+                    }
+                });
 
             result_layout.addView( result_text, i );
         }
