@@ -85,11 +85,11 @@ public class IDontWannaWakeUpLikeCrapActivity
         Calendar asleep = Calendar.getInstance();
         asleep.add( Calendar.MINUTE, time_to_fall_asleep );
         Calendar wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
-        
+
         result_layout.removeAllViewsInLayout(  );
         for ( int i = 0 ; i < 6 ; i++ ) {
             TextView result_text = new TextView( this );
-            
+
             wake_up.add( Calendar.HOUR, 1 );
             wake_up.add( Calendar.MINUTE, 30 );
             result_text.setText( justTheTime( wake_up ) );
