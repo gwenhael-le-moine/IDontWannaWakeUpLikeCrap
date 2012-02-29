@@ -24,8 +24,8 @@ import com.gwenhael.idontwannawakeuplikecrap.AboutActivity;
 public class IDontWannaWakeUpLikeCrapActivity
     extends Activity
 {
-    private static final int DEFAULT_NAP_TIME = 20;
-    private static final int DEFAULT_FALL_ASLEEP_TIME = 14;
+    private static final int DEFAULT_NAP_DURATION = 20;
+    private static final int DEFAULT_FALLING_ASLEEP_DURATION = 14;
     private static final int DEFAULT_SLEEP_CYCLE_DURATION = 90;
 
     protected LinearLayout main_layout;
@@ -106,8 +106,8 @@ public class IDontWannaWakeUpLikeCrapActivity
     
     private void refresh(  )
     {
-        int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;
-        int nap_duration = this.DEFAULT_NAP_TIME;
+        int time_to_fall_asleep = this.DEFAULT_FALLING_ASLEEP_DURATION;
+        int nap_duration = this.DEFAULT_NAP_DURATION;
         int sleep_cycle_duration = this.DEFAULT_SLEEP_CYCLE_DURATION;
 
         Calendar asleep = Calendar.getInstance( TimeZone.getDefault(  ) );
