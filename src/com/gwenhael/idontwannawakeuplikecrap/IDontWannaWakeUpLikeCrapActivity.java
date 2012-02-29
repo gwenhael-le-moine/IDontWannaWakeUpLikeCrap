@@ -103,7 +103,7 @@ public class IDontWannaWakeUpLikeCrapActivity
             result_text.setOnClickListener( new View.OnClickListener() {
                     public void onClick(View v) {
                         Calendar cal = (Calendar) v.getTag(  );
-                        int h = cal.get( Calendar.HOUR );
+                        int h = cal.get( Calendar.HOUR_OF_DAY );
                         int m = cal.get( Calendar.MINUTE );
 
                         // Toast.makeText( IDontWannaWakeUpLikeCrapActivity.this, "Alarm set at " + h + ":" + m, Toast.LENGTH_LONG );
