@@ -94,22 +94,25 @@ public class IDontWannaWakeUpLikeCrapActivity
 
         result_layout.removeAllViewsInLayout(  );
         for ( int i = 0 ; i < 6 ; i++ ) {
-            Button result_text = new Button( this );
-
             wake_up.add( Calendar.HOUR, 1 );
             wake_up.add( Calendar.MINUTE, 30 );
+
+            Button result_text = new Button( this );
+            result_text.setTag( wake_up.clone(  ) );
             result_text.setText( justTheTime( wake_up ) );
             result_text.setOnClickListener( new View.OnClickListener() {
                     public void onClick(View v) {
-                        int h = wake_up.get( Calendar.HOUR ); // no closure :/
-                        int m = wake_up.get( Calendar.MINUTE ); // no closure :/
+                        Calendar cal = (Calendar) v.getTag(  );
+                        int h = cal.get( Calendar.HOUR );
+                        int m = cal.get( Calendar.MINUTE );
 
+                        // Toast.makeText( IDontWannaWakeUpLikeCrapActivity.this, "Alarm set at " + h + ":" + m, Toast.LENGTH_LONG );
                         Intent i = new Intent( AlarmClock.ACTION_SET_ALARM );
                         i.putExtra( AlarmClock.EXTRA_HOUR, h );
                         i.putExtra( AlarmClock.EXTRA_MINUTES, m );
                         startActivity(i);
                     }
-                });
+                } );
 
             result_layout.addView( result_text, i );
         }
