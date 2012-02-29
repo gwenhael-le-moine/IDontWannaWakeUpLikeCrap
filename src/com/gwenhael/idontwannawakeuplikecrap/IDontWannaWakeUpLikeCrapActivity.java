@@ -6,18 +6,18 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.LinearLayout;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Intent;
-import android.provider.AlarmClock;
 
 import com.gwenhael.idontwannawakeuplikecrap.AboutActivity;
 
@@ -26,6 +26,7 @@ public class IDontWannaWakeUpLikeCrapActivity
 {
     private static final int DEFAULT_NAP_TIME = 20;
     private static final int DEFAULT_FALL_ASLEEP_TIME = 14;
+    private static final int DEFAULT_SLEEP_CYCLE_DURATION = 90;
 
     protected LinearLayout main_layout;
     protected LinearLayout result_layout;
@@ -107,11 +108,12 @@ public class IDontWannaWakeUpLikeCrapActivity
     {
         int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;
         int nap_duration = this.DEFAULT_NAP_TIME;
+        int sleep_cycle_duration = this.DEFAULT_SLEEP_CYCLE_DURATION;
 
         Calendar asleep = Calendar.getInstance( TimeZone.getDefault(  ) );
         Calendar nap = (Calendar)asleep.clone(  ); // what's with the casting crap?
-        nap.add( Calendar.MINUTE, nap_duration );
         Calendar wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
+        nap.add( Calendar.MINUTE, nap_duration );
         wake_up.add( Calendar.MINUTE, time_to_fall_asleep );
 
         result_layout.removeAllViewsInLayout(  );
@@ -119,8 +121,7 @@ public class IDontWannaWakeUpLikeCrapActivity
         result_layout.addView( makeAlarmButton( nap ) );
 
         for ( int i = 0 ; i < 6 ; i++ ) {
-            wake_up.add( Calendar.HOUR, 1 );
-            wake_up.add( Calendar.MINUTE, 30 );
+            wake_up.add( Calendar.MINUTE, sleep_cycle_duration );
 
             result_layout.addView( makeAlarmButton( wake_up ) );
         }
