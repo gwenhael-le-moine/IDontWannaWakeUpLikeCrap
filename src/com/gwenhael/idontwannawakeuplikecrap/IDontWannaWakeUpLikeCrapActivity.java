@@ -31,8 +31,6 @@ public class IDontWannaWakeUpLikeCrapActivity
     protected LinearLayout result_layout;
     protected TextView presentation;
 
-    protected Calendar wake_up;
-
     private Timer timer;
 
     /** Called when the activity is first created. */
@@ -90,7 +88,7 @@ public class IDontWannaWakeUpLikeCrapActivity
 
         Calendar asleep = Calendar.getInstance( TimeZone.getDefault(  ) );
         asleep.add( Calendar.MINUTE, time_to_fall_asleep );
-        wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
+        Calendar wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
 
         result_layout.removeAllViewsInLayout(  );
         for ( int i = 0 ; i < 6 ; i++ ) {
@@ -106,7 +104,6 @@ public class IDontWannaWakeUpLikeCrapActivity
                         int h = cal.get( Calendar.HOUR_OF_DAY );
                         int m = cal.get( Calendar.MINUTE );
 
-                        // Toast.makeText( IDontWannaWakeUpLikeCrapActivity.this, "Alarm set at " + h + ":" + m, Toast.LENGTH_LONG );
                         Intent i = new Intent( AlarmClock.ACTION_SET_ALARM );
                         i.putExtra( AlarmClock.EXTRA_HOUR, h );
                         i.putExtra( AlarmClock.EXTRA_MINUTES, m );
