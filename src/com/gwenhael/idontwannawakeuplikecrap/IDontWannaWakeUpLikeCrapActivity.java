@@ -81,37 +81,48 @@ public class IDontWannaWakeUpLikeCrapActivity
     {
         startActivity( new Intent(this, AboutActivity.class) );
     }
+
+    private Button makeAlarmButton( Calendar cal )
+    {
+        Button alarmButton = new Button( this );
+        alarmButton.setTag( cal.clone(  ) );
+        alarmButton.setText( justTheTime( cal ) );
+        alarmButton.setOnClickListener( new View.OnClickListener() {
+                public void onClick(View v) {
+                    Calendar cal = (Calendar) v.getTag(  );
+                    int h = cal.get( Calendar.HOUR_OF_DAY );
+                    int m = cal.get( Calendar.MINUTE );
+
+                    Intent i = new Intent( AlarmClock.ACTION_SET_ALARM );
+                    i.putExtra( AlarmClock.EXTRA_HOUR, h );
+                    i.putExtra( AlarmClock.EXTRA_MINUTES, m );
+                    startActivity(i);
+                }
+            } );
+
+        return alarmButton;
+    }
     
     private void refresh(  )
     {
         int time_to_fall_asleep = this.DEFAULT_FALL_ASLEEP_TIME;
+        int nap_duration = this.DEFAULT_NAP_TIME;
 
         Calendar asleep = Calendar.getInstance( TimeZone.getDefault(  ) );
-        asleep.add( Calendar.MINUTE, time_to_fall_asleep );
+        Calendar nap = (Calendar)asleep.clone(  ); // what's with the casting crap?
+        nap.add( Calendar.MINUTE, nap_duration );
         Calendar wake_up = (Calendar)asleep.clone(  ); // what's with the casting crap?
+        wake_up.add( Calendar.MINUTE, time_to_fall_asleep );
 
         result_layout.removeAllViewsInLayout(  );
+
+        result_layout.addView( makeAlarmButton( nap ) );
+
         for ( int i = 0 ; i < 6 ; i++ ) {
             wake_up.add( Calendar.HOUR, 1 );
             wake_up.add( Calendar.MINUTE, 30 );
 
-            Button result_text = new Button( this );
-            result_text.setTag( wake_up.clone(  ) );
-            result_text.setText( justTheTime( wake_up ) );
-            result_text.setOnClickListener( new View.OnClickListener() {
-                    public void onClick(View v) {
-                        Calendar cal = (Calendar) v.getTag(  );
-                        int h = cal.get( Calendar.HOUR_OF_DAY );
-                        int m = cal.get( Calendar.MINUTE );
-
-                        Intent i = new Intent( AlarmClock.ACTION_SET_ALARM );
-                        i.putExtra( AlarmClock.EXTRA_HOUR, h );
-                        i.putExtra( AlarmClock.EXTRA_MINUTES, m );
-                        startActivity(i);
-                    }
-                } );
-
-            result_layout.addView( result_text, i );
+            result_layout.addView( makeAlarmButton( wake_up ) );
         }
     }
 
