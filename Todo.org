@@ -1,6 +1,7 @@
 * Code
 ** Flesh up about_text
 * UI
+** Icon
 ** Polish style
 *** fonts
 *** colors (use a color scheme webapp to pick one)
@@ -8,5 +9,3 @@
 ** Use configuration panel
 *** maybe use wheel for input
    	http://code.google.com/p/android-wheel/
-* Functionality
-** add asleep+20min for naps ?
