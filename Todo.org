@@ -1,5 +1,7 @@
 * Code
 ** Flesh up about_text
+** Change text to something like "wake me up in... 0:20 1:30 3:00..."
+** Presentation text to "Wake me up at" ?
 * UI
 ** Icon
 ** Polish style
