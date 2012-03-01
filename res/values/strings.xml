@@ -2,12 +2,12 @@
 <resources>
     <string name="app_name">"Fresh awake!"</string>
 	<string name="app_version">"v0.2"</string>
-	<string name="tomorrow">tomorrow</string>
-	<string name="today">today</string>
+	<string name="tomorrow">"...tomorrow"</string>
+	<string name="today">"...today"</string>
 	<string name="at">" at "</string>
-	<string name="presentation">Going to sleep now you should set the alarm to:</string>
+	<string name="presentation">"Wake me up..."</string>
 	<string name="default_result">""</string>
 	<string name="about">"About"</string>
-	<string name="about_text">"Once upon a time, in the land of dreams, was an alarm-clock, brutal, cold and ugly."</string>
+	<string name="about_text">"Once upon a time, in the land of dreams, was an alarm-clock, brutal, cold and ugly. It didn't care about the fact that you need around 14 minutes to fall asleep and then need to enjoy ideally 5 or 6 1½hour sleep-cycle to feel fresh and ready to take on the world in the morning; or couldn't advise you to have a 20 minutes power nap. But we do ⌣"</string>
 	<string name="about_close">"Nice."</string>
 </resources>
