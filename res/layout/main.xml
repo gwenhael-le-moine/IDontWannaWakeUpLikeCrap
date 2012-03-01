@@ -9,6 +9,7 @@
 	  android:id="@+id/presentation"
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
+	  style="@style/WakeMeUp"
 	  android:text="@string/presentation" />
   <LinearLayout
 	  android:id="@+id/result_layout"
