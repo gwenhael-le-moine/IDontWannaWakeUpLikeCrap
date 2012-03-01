@@ -28,9 +28,7 @@ public class IDontWannaWakeUpLikeCrapActivity
     private static final int DEFAULT_FALLING_ASLEEP_DURATION = 14;
     private static final int DEFAULT_SLEEP_CYCLE_DURATION = 90;
 
-    protected LinearLayout main_layout;
     protected LinearLayout result_layout;
-    protected TextView presentation;
 
     private Timer timer;
 
@@ -41,9 +39,7 @@ public class IDontWannaWakeUpLikeCrapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main); // before trying to link widgets
 
-        main_layout = (LinearLayout) findViewById( R.id.layout );
         result_layout = (LinearLayout) findViewById( R.id.result_layout );
-        presentation = (TextView) findViewById( R.id.presentation );
         
         refresh(  );
 
