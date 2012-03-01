@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.view.View.OnClickListener;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +28,7 @@ public class IDontWannaWakeUpLikeCrapActivity
     private static final int DEFAULT_FALLING_ASLEEP_DURATION = 14;
     private static final int DEFAULT_SLEEP_CYCLE_DURATION = 90;
 
-    protected LinearLayout result_layout;
+    protected ViewGroup result_layout;
 
     private Timer timer;
 
@@ -39,7 +39,7 @@ public class IDontWannaWakeUpLikeCrapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main); // before trying to link widgets
 
-        result_layout = (LinearLayout) findViewById( R.id.result_layout );
+        result_layout = (ViewGroup) findViewById( R.id.result_layout );
         
         refresh(  );
 
