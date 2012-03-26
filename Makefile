@@ -16,8 +16,9 @@ debug:
 release:
 	ant release
 sign:
-	jarsigner -verbose -keystore ~/.android/gwenhael-release-key.keystore bin/IDontWannaWakeUpLikeCrap-release-unsigned.apk gwenhael-release
-	zipalign -v 4 bin/IDontWannaWakeUpLikeCrap-release-unsigned.apk bin/IDontWannaWakeUpLikeCrap-release.apk
+	jarsigner -digestalg SHA1 -sigalg MD5withRSA -verbose -keystore ~/.android/gwenhael-release-key.keystore bin/IDontWannaWakeUpLikeCrap-release-unsigned.apk gwenhael-release
+	mv bin/IDontWannaWakeUpLikeCrap-release-unsigned.apk bin/IDontWannaWakeUpLikeCrap-release-signed.apk
+	zipalign -v 4 bin/IDontWannaWakeUpLikeCrap-release-signed.apk bin/IDontWannaWakeUpLikeCrap-release.apk
 
 run:
 	adb shell am start -a android.intent.action.MAIN -n com.gwenhael.idontwannawakeuplikecrap/com.gwenhael.idontwannawakeuplikecrap.IDontWannaWakeUpLikeCrapActivity
