@@ -1,6 +1,4 @@
 * Bugs
-** catch ActivityNotFoundException and display meaningful help (people have no alarm app?!)
-   https://play.google.com/apps/publish/Home?dev_acc=04303034466269894491#CrashDetailsPlace:p=com.gwenhael.idontwannawakeuplikecrap&ex=android.content.ActivityNotFoundException&c=android.app.Instrumentation&f=Instrumentation.java&m=checkStartActivityResult&em
 
 * UI
 ** Use configuration panel
