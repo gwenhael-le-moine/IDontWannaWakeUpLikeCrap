@@ -10,4 +10,5 @@
 	<string name="about">"About"</string>
 	<string name="about_text">"Once upon a time, in the land of dreams, was an alarm-clock, brutal, cold and ugly. It didn't care about the fact that you need around 14 minutes to fall asleep and then need to enjoy ideally 5 or 6 1½hour sleep-cycle to feel fresh and ready to take on the world in the morning; or couldn't advise you to have a 20 minutes power nap. But we do :)"</string>
 	<string name="about_close">"Nice."</string>
+	<string name="noAlarmApp">"You seem to have no Alarm app installed so there's not much we can do :("</string>
 </resources>

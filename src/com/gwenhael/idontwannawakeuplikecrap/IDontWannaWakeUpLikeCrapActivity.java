@@ -1,12 +1,17 @@
 package com.gwenhael.idontwannawakeuplikecrap;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.view.Menu;
@@ -27,8 +32,10 @@ public class IDontWannaWakeUpLikeCrapActivity
     private static final int DEFAULT_NAP_DURATION = 20;
     private static final int DEFAULT_FALLING_ASLEEP_DURATION = 14;
     private static final int DEFAULT_SLEEP_CYCLE_DURATION = 90;
+    private static final String DEFAULT_ALARM_INTENT = new String( "BUG" ); // AlarmClock.ACTION_SET_ALARM;
 
     protected ViewGroup result_layout;
+    protected boolean alarmIntentAvailable;
 
     private Timer timer;
 
@@ -40,7 +47,12 @@ public class IDontWannaWakeUpLikeCrapActivity
         setContentView(R.layout.main); // before trying to link widgets
 
         result_layout = (ViewGroup) findViewById( R.id.result_layout );
-        
+
+        alarmIntentAvailable = isIntentAvailable( this, DEFAULT_ALARM_INTENT );
+
+        if ( ! alarmIntentAvailable ) {
+            Toast.makeText( getApplicationContext(  ), getString( R.string.noAlarmApp ), Toast.LENGTH_LONG ).show(  );
+        }
         refresh(  );
 
         timer = new Timer(  );
@@ -79,23 +91,52 @@ public class IDontWannaWakeUpLikeCrapActivity
         startActivity( new Intent(this, AboutActivity.class) );
     }
 
+    // from http://www.curious-creature.org/2008/12/15/android-can-i-use-this-intent/
+    /**
+     * Indicates whether the specified action can be used as an intent. This
+     * method queries the package manager for installed packages that can
+     * respond to an intent with the specified action. If no suitable package is
+     * found, this method returns false.
+     *
+     * @param context The application's environment.
+     * @param action The Intent action to check for availability.
+     *
+     * @return True if an Intent with the specified action can be sent and
+     *         responded to, false otherwise.
+     */
+    private boolean isIntentAvailable( Context context, String action ) {
+        final PackageManager packageManager = context.getPackageManager(  );
+        final Intent intent = new Intent( action );
+        List<ResolveInfo> list = packageManager.queryIntentActivities( intent, PackageManager.MATCH_DEFAULT_ONLY );
+        return list.size(  ) > 0;
+    }
+    
     private Button makeAlarmButton( Calendar cal )
     {
         Button alarmButton = new Button( this );
         alarmButton.setTag( cal.clone(  ) );
         alarmButton.setText( justTheTime( cal ) );
-        alarmButton.setOnClickListener( new View.OnClickListener() {
-                public void onClick(View v) {
-                    Calendar cal = (Calendar) v.getTag(  );
-                    int h = cal.get( Calendar.HOUR_OF_DAY );
-                    int m = cal.get( Calendar.MINUTE );
-
-                    Intent i = new Intent( AlarmClock.ACTION_SET_ALARM );
-                    i.putExtra( AlarmClock.EXTRA_HOUR, h );
-                    i.putExtra( AlarmClock.EXTRA_MINUTES, m );
-                    startActivity(i);
-                }
-            } );
+        if ( alarmIntentAvailable ) {
+            alarmButton.setOnClickListener( new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Calendar cal = (Calendar) v.getTag(  );
+                        int h = cal.get( Calendar.HOUR_OF_DAY );
+                        int m = cal.get( Calendar.MINUTE );
+                        
+                        Intent alarmIntent = new Intent( DEFAULT_ALARM_INTENT );
+                        alarmIntent.putExtra( AlarmClock.EXTRA_HOUR, h );
+                        alarmIntent.putExtra( AlarmClock.EXTRA_MINUTES, m );
+                        try {
+                            startActivity( alarmIntent );
+                        } catch( ActivityNotFoundException noAlarmApp ) {
+                            Toast.makeText( getApplicationContext(  ), getString( R.string.noAlarmApp ), Toast.LENGTH_SHORT ).show(  );
+                        }
+                    }
+                } );
+        }
+        else {
+            alarmButton.setEnabled( alarmIntentAvailable );
+        }
 
         return alarmButton;
     }
