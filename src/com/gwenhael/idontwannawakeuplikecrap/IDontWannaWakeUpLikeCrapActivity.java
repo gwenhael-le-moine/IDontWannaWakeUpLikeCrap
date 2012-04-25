@@ -32,7 +32,7 @@ public class IDontWannaWakeUpLikeCrapActivity
     private static final int DEFAULT_NAP_DURATION = 20;
     private static final int DEFAULT_FALLING_ASLEEP_DURATION = 14;
     private static final int DEFAULT_SLEEP_CYCLE_DURATION = 90;
-    private static final String DEFAULT_ALARM_INTENT = new String( "BUG" ); // AlarmClock.ACTION_SET_ALARM;
+    private static final String DEFAULT_ALARM_INTENT = AlarmClock.ACTION_SET_ALARM;
 
     protected ViewGroup result_layout;
     protected boolean alarmIntentAvailable;
