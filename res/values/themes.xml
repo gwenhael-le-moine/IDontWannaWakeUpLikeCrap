@@ -3,14 +3,14 @@
   <color name="dark">#404040</color>
   <color name="light">#ebebeb</color>
   
-    <style name="IDWWULC" parent="@android:style/Theme.Light">
+    <style name="IDWWULC" parent="@android:style/Theme">
     	<item name="android:layout_height">fill_parent</item>
     	<item name="android:layout_width">fill_parent</item>
         <item name="android:textSize">22sp</item>
         <item name="android:typeface">serif</item>
 		<item name="android:windowNoTitle">true</item>
-		<item name="android:colorBackground">@color/light</item>
-		<item name="android:textColor">@color/dark</item>
+		<item name="android:colorBackground">@color/dark</item>
+		<item name="android:textColor">@color/light</item>
 		<item name="android:buttonStyle">@style/Button</item>
     </style>
 	<style name="WakeMeUp" parent="@android:style/Widget.TextView">
@@ -26,5 +26,7 @@
       <item name="android:gravity">fill_vertical|center_horizontal</item>
 	  <item name="android:lineSpacingMultiplier">1.2</item>
 	  <item name="android:layout_alignParentBottom">true</item>
+	  <!-- <item name="android:colorBackground">@color/dark</item> -->
+	  <!-- <item name="android:textColor">@color/light</item> -->
 	</style>
 </resources>
