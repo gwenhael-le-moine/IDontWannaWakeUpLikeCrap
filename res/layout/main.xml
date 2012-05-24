@@ -13,8 +13,8 @@
 	  android:text="@string/presentation" />
   <ScrollView
 	  android:id="@+id/scrolling"
-	  android:layout_width="wrap_content"
-	  android:layout_height="wrap_content"
+	  android:layout_width="fill_parent"
+	  android:layout_height="fill_parent"
 	  android:scrollbars="vertical">
 	<LinearLayout
 		android:id="@+id/result_layout"
